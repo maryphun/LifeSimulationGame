@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Naninovel Layer
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: FrontUI
     uniqueID: 3070099209
+    locked: 0
+  - name: Naninovel Layer
+    uniqueID: 973755697
     locked: 0

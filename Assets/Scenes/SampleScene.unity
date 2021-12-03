@@ -199,6 +199,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179444756}
   m_CullTransparentMesh: 1
+--- !u!1 &458921701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458921702}
+  - component: {fileID: 458921703}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &458921702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458921701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.64835906, y: -0.6271623, z: -2.2509432}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &458921703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458921701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8e647d2a47eba43a459ca1ffa66c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &502172104
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +253,7 @@ GameObject:
   - component: {fileID: 502172105}
   - component: {fileID: 502172107}
   - component: {fileID: 502172106}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +370,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -452,7 +495,7 @@ GameObject:
   - component: {fileID: 764446795}
   - component: {fileID: 764446794}
   - component: {fileID: 764446793}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +642,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u4F60\u597D....\u3002"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc411853297751445aca07e47da963d1, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -8299125249613850340, guid: cc411853297751445aca07e47da963d1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -692,7 +735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1185855360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +1019,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u9732\u5A1C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc411853297751445aca07e47da963d1, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -8299125249613850340, guid: cc411853297751445aca07e47da963d1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
