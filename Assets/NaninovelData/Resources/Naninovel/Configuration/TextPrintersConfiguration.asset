@@ -23,7 +23,7 @@ MonoBehaviour:
   DefaultBaseAutoDelay: 0.5
   MaxRevealDelay: 0.06
   MaxAutoWaitDelay: 0.02
-  ScaleAutoWait: 1
+  ScaleAutoWait: 0
   DefaultMetadata:
     Implementation: Naninovel.UITextPrinter, Elringus.Naninovel.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

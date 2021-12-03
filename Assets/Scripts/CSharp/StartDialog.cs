@@ -29,5 +29,7 @@ public class StartDialog : Command
         // 4. Enable Naninovel input.
         var inputManager = Engine.GetService<IInputManager>();
         inputManager.ProcessInput = true;
+
+        ReferenceManager.Instance.gameMng.DialogStarted();
     }
 }

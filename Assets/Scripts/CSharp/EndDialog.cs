@@ -38,5 +38,7 @@ public class EndDialog : Command
         // 6. Enable character control.
         //var controller = Object.FindObjectOfType<CharacterController3D>();
         //controller.IsInputBlocked = false;
+
+        ReferenceManager.Instance.gameMng.DialogEnded();
     }
 }

@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050d909da8f293c4cac3351071715b4d, type: 3}
   m_Name: CustomVariablesConfiguration
   m_EditorClassIdentifier: 
-  PredefinedVariables: []
+  PredefinedVariables:
+  - name: DaughterName
+    value: '"Felix"'
+  - name: FatherName
+    value: "\"\u5E15\u5EAB\""
+  - name: Age
+    value: 10
+  - name: Gold
+    value: 250
+  - name: Stamina
+    value: 100
+  - name: Year
+    value: 2021
+  - name: Month
+    value: 1
+  - name: Day
+    value: 1

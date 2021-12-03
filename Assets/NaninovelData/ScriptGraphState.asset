@@ -20,3 +20,10 @@ MonoBehaviour:
       y: 0
       width: NaN
       height: NaN
+  - scriptName: Test2
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: NaN
+      height: NaN

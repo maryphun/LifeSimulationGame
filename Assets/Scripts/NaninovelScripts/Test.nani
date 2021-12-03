@@ -1,5 +1,5 @@
 # Chapter1
-露娜: 你好...。
+{DaughterName}: Hi...。
 帕庫: 你好！[i] 你想要繼續跟我説話嗎？
 繼續和帕庫説話嗎？[skipInput]
 @choice 繼續 goto:continue

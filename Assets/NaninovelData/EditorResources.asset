@@ -35,7 +35,7 @@ MonoBehaviour:
       guid: b47d9659b2be5ee4e95a776f213c9d4b
   - Id: TextPrinters/ef2ff56d-9fe4-4d34-bc2c-0b04c5630b5f
     Resources:
-    - name: Dialogue
+    - name: TMProDialogue
       pathPrefix: TextPrinters
       guid: 5838611042eaced44954639c4ea4d81e
   - Id: TextPrinters/af30f452-306a-4705-8fce-ee2c28661e8c
@@ -164,8 +164,11 @@ MonoBehaviour:
     - name: continue
       pathPrefix: Scripts
       guid: 7eed670d019da5b4d9ebe29ffa89a1a3
+    - name: Test2
+      pathPrefix: Scripts
+      guid: d20ff2b2d6e3e6b4ab4fa550e49d09b2
   - Id: TextPrinters/098220d7-d93e-495a-8982-5b296f9bdf03
     Resources:
-    - name: Dialogu
+    - name: Dialogue
       pathPrefix: TextPrinters
       guid: 1bc08ccd31adff6439e97161aa6e1d8b

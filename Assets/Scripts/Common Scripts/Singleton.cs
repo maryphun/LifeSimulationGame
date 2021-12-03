@@ -1,56 +1,90 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 
-using UnityEngine;
-
-public abstract class Singleton<T> : MonoBehaviour where T : Component
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance;
+    private static T instance;
 
-    private static bool applicationIsQuiting = false;
+    public static T Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = (T)FindObjectOfType(typeof(T));
+
+                /*
+                if (instance == null) {
+                    Debug.LogError (typeof(T) + "is nothing");
+                }
+                */
+
+                if (instance == null)
+                {
+                    instance = new GameObject("SingletonMonoBehaviour<" + typeof(T).Name + ">").AddComponent<T>();
+                }
+                /*
+                */
+            }
+
+            return instance;
+        }
+    }
+
+    // シーン切り替えで死なないフラグ
+    [SerializeField]
+    public bool _DontDestroyOnLoad = false;
 
     protected virtual void Awake()
     {
-        // avoid multiple instance
-        if (_instance == null)
+        if (CheckInstance())
         {
-            _instance = this as T;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (_instance != this as T)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
-    public static T Instance()
-    {
-        if (applicationIsQuiting)
-        {
-            return null;
-        }
-
-        if (_instance == null)
-        {
-            // create new instance if there's none
-            _instance = FindObjectOfType<T>();
-
-            if (_instance == null)
+            if (_DontDestroyOnLoad)
             {
-                GameObject obj = new GameObject();
-                obj.name = typeof(T).Name;
-                _instance = obj.AddComponent<T>();
+                // シーン切替で死なない
+                DontDestroyOnLoad(this.gameObject);
             }
+            Init();
         }
-
-        // return the result
-        return _instance;
     }
 
-    private void OnApplicationQuit()
+    // 初期化関数、派生クラスでAwakeは使わずこっちをつかうこと
+    protected virtual void Init() { }
+
+    protected bool CheckInstance()
     {
-        applicationIsQuiting = true;
+        /*
+        if( this == Instance){ return true;}
+        Destroy(this);
+        return false;
+        */
+
+        if (instance != null)
+        {
+            if (this == instance) { return true; }
+            GameObject obj = this.gameObject;
+            Destroy(this);
+            Destroy(obj);
+            return false;
+        }
+
+        instance = this as T;
+
+        return true;
+    }
+
+    /*
+    // 強制インスタンス削除
+    public void InstanceDestroy()
+    {
+        Destroy(instance);
+    }
+    */
+
+    static public bool IsAlive()
+    {
+        return instance != null;
     }
 }

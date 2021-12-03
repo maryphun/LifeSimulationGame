@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Naninovel;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Canvas FrontUI;
+
+    private void Awake()
+    {
+        ReferenceManager.Instance.gameMng = this;
+    }
+
     private async void Start()
     {
         // Initiate naninovel engine manually.
@@ -17,38 +26,42 @@ public class GameManager : MonoBehaviour
 
     private async void StartGame()
     {
-        // Change Sorting Layer
-        //GameObject[] objectList = FindGameObjectsInLayer(5);
-        //foreach (GameObject obj in objectList)
-        //{
-        //    Canvas canvas = obj.GetComponent<Canvas>();
-        //    if (canvas != null)
-        //    {
-        //        canvas.sortingLayerName = "Naninovel Layer";
-        //    }
-        //}
+        CreateUI();
 
         // Engine is initialized here, it's safe to use the APIs.
-        var naniScriptEngine = Engine.GetService<IScriptPlayer>();
-        naniScriptEngine.PreloadAndPlayAsync("Test", label: "Chapter1").Forget();
+        var naniNovelInput = GameObject.Find("ContinueInputUI").GetComponent<CanvasGroup>();
+        naniNovelInput.blocksRaycasts = false;
+
+        // Audio
+        AudioManager.Instance.SetMusicVolume(0.15f);
+        AudioManager.Instance.PlayMusic("Yet_Another_Sunset");
     }
 
-    GameObject[] FindGameObjectsInLayer(int layer)
+    private void CreateUI()
     {
-        var goArray = FindObjectsOfType(typeof(GameObject)) as GameObject[];
-        var goList = new System.Collections.Generic.List<GameObject>();
-        for (int i = 0; i < goArray.Length; i++)
-        {
-            if (goArray[i].layer == layer)
-            {
-                goList.Add(goArray[i]);
-                Debug.Log(goArray[i].name);
-            }
-        }
-        if (goList.Count == 0)
-        {
-            return null;
-        }
-        return goList.ToArray();
+        // Instantiate UI Objects
+        var obj = Instantiate(FrontUI);
+        obj.GetComponent<CanvasGroup>().alpha = 0.0f;
+        obj.GetComponent<CanvasGroup>().DOFade(1.0f, 1.0f);
+        ReferenceManager.Instance.frontUI = obj.gameObject;
+    }
+
+    public void DialogEnded()
+    {
+        var obj = ReferenceManager.Instance.frontUI;
+        obj.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        obj.GetComponent<CanvasGroup>().DOFade(1.0f, 1.0f);
+
+        var naniNovelInput = GameObject.Find("ContinueInputUI").GetComponent<CanvasGroup>();
+        naniNovelInput.blocksRaycasts = false;
+    }
+    public void DialogStarted()
+    {
+        var obj = ReferenceManager.Instance.frontUI;
+        obj.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        obj.GetComponent<CanvasGroup>().DOFade(0.0f, 1.0f);
+
+        var naniNovelInput = GameObject.Find("ContinueInputUI").GetComponent<CanvasGroup>();
+        naniNovelInput.blocksRaycasts = true;
     }
 }
